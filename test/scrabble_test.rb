@@ -5,7 +5,6 @@ require 'minitest/pride'
 require 'pry'
 
 class ScrabbleTest < Minitest::Test
-  
   def test_it_can_score_a_single_letter
     # skip
     assert_equal 1, Scrabble.new.score("a")
@@ -24,5 +23,8 @@ class ScrabbleTest < Minitest::Test
 
   def test_if_word_has_7_or_more_letters
     assert_equal 58, Scrabble.new.score_with_multipliers('sparkle', [1,2,1,3,1,2,1], 2)
+    assert_equal 48, Scrabble.new.score_with_multipliers('sparky', [1,2,1,3,1,2,1], 2)
   end
+
+  
 end
