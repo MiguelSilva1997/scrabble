@@ -1,7 +1,10 @@
 class Scrabble
 
   def score(word)
-    1
+    score = 0
+    return score if word == nil || word.empty?
+    word.each_char {|l| score += point_values[l.upcase]}
+    score
   end
 
   def point_values
@@ -15,4 +18,13 @@ class Scrabble
       "Y"=>4, "Z"=>10
     }
   end
+
+  def score_with_multipliers(word, multi, doubler = 1)
+    score = 0
+    letter = word.upcase.split("")
+    letter.each_with_index {|v,i|score += (point_values[v] * multi[i]) * doubler}
+    score += (doubler * 10) if letter.length > 6
+    score
+  end
+
 end
