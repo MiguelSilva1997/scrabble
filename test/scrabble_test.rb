@@ -14,6 +14,7 @@ class ScrabbleTest < Minitest::Test
   def test_it_can_score_a_word
     assert_equal 8, Scrabble.new.score("hello")
     assert_equal 0, Scrabble.new.score(nil)
+    assert_equal 9, Scrabble.new.score("world")
   end
 
   def test_score_with_multipliers
@@ -26,5 +27,5 @@ class ScrabbleTest < Minitest::Test
     assert_equal 48, Scrabble.new.score_with_multipliers('sparky', [1,2,1,3,1,2,1], 2)
   end
 
-  
+
 end
